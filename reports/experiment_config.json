@@ -1,0 +1,71 @@
+{
+  "experiment_id": "c266b088f80c0dfe",
+  "created_at_utc": "2026-10-20T16:01:35.259567+00:00",
+  "status": "complete",
+  "parameters": {
+    "trials": 300,
+    "drivers_per_trial": 12,
+    "seed": 7,
+    "demand_levels": [
+      "low",
+      "medium",
+      "high"
+    ]
+  },
+  "dataset": {
+    "name": "coimbatore_ev_stations_replica_demo_synthetic.csv",
+    "path_relative_to_project": "backend/data/coimbatore_ev_stations_replica_demo_synthetic.csv",
+    "sha256": "8ab2a752a7d678ba18dc415af8a19633438920554178899d7a32abf218951748",
+    "station_records": 47,
+    "field_count": 44,
+    "ground_truth_entity_pairs": 0,
+    "contains_synthetic_state": true
+  },
+  "environment": {
+    "os": "Linux-7.0.0-27-generic-x86_64-with-glibc2.43",
+    "architecture": "x86_64",
+    "logical_cpu_count": 8,
+    "cpu_model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+    "system_memory_mb": 7253.9,
+    "python": "3.11.16",
+    "fastapi": "0.116.1",
+    "pydantic": "2.11.7",
+    "uvicorn": "0.35.0",
+    "reportlab": "5.0.1"
+  },
+  "algorithms": [
+    "random",
+    "nearest",
+    "max_availability",
+    "fastest_rated_kw",
+    "cheapest",
+    "naive_total_time",
+    "legacy_ranker (before)",
+    "TOPSIS (alternative)",
+    "generalized_cost (alternative)",
+    "new_ranker (after)",
+    "new_ranker + holds (implemented)"
+  ],
+  "measurement_notes": {
+    "candidate_generation": "Timed connector/status/radius filtering; excludes route table precomputation.",
+    "picker_time": "Timed selection function calls; descriptive, single-process measurement.",
+    "wall_time": "Full evaluation for one demand level, shared by all algorithms.",
+    "memory": "Process peak RSS high-water mark; not isolated per algorithm.",
+    "preprocessing_time_s": 0.021435157999803778,
+    "matching_metrics": "Not applicable: no entity labels or predicted match pairs.",
+    "simulation": "Synthetic station state, origins, driver profiles, traffic, arrivals and charge outcomes.",
+    "paired_interval": "Normal-approximation 95% CI over trial-level paired mean total times; not a claim about field outcomes."
+  },
+  "completed_demand_levels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "outputs": [
+    "algorithm_comparison_report.md",
+    "algorithm_comparison_report.pdf",
+    "algorithm_comparison_results.csv",
+    "experiment_config.json",
+    "reproduce_experiments.md"
+  ]
+}
